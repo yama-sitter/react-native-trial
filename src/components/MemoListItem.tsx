@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { formatDate } from '../lib';
 
 const styles = StyleSheet.create({
   item: {
@@ -22,14 +23,6 @@ const styles = StyleSheet.create({
     color: '#848484',
   },
 });
-
-const formatDate = (d: Date) =>
-  `${d.getFullYear()}年${
-    d.getMonth() + 1
-  }月${d.getDate()}日 ${d.getUTCHours()}:${d.getUTCMinutes()}`.replace(
-    /\n|\r/g,
-    ''
-  );
 
 export type Props = {
   title: string;

@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { AppBar } from '../components/AppBar';
 import { MemoList } from '../components/MemoList';
-import { CircleButton } from '../components/CircleButton';
 import { FloatingAction } from '../components/FloatingAction';
+import { CircleButton } from '../components/CircleButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,7 @@ export const MemoListScreen: React.FC = () => (
   <View style={styles.container}>
     <AppBar />
     <MemoList items={memoListItems} />
-    <FloatingAction>
+    <FloatingAction right={40} bottom={40}>
       <CircleButton>+</CircleButton>
     </FloatingAction>
   </View>
