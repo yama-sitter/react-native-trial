@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { formatDate } from '../lib';
 
 const styles = StyleSheet.create({
@@ -36,7 +37,7 @@ export const MemoListItem: React.FC<Props> = ({ title, date }) => (
       <Text style={styles.date}>{formatDate(date)}</Text>
     </View>
     <View>
-      <Text>X</Text>
+      <Feather name="x" size={16} color="#b0b0b0" />
     </View>
   </View>
 );

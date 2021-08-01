@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { AppBar } from '../components/AppBar';
 import { FloatingAction } from '../components/FloatingAction';
 import { CircleButton } from '../components/CircleButton';
@@ -26,7 +27,9 @@ export const MemoDetailScreen: React.FC = () => (
     <MemoDetailHeader {...header} />
     <MemoDetailContent body={body} />
     <FloatingAction top={160} right={40}>
-      <CircleButton>+</CircleButton>
+      <CircleButton>
+        <Feather name="edit-2" size={32} color="white" />
+      </CircleButton>
     </FloatingAction>
   </View>
 );

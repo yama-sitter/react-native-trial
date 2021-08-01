@@ -5,6 +5,13 @@ const styles = StyleSheet.create({
   floatingAction: {
     position: 'absolute',
   },
+  floatingActionButton: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 8,
+  },
 });
 
 export type Props = {
@@ -15,5 +22,7 @@ export type Props = {
 };
 
 export const FloatingAction: React.FC<Props> = ({ children, ...position }) => (
-  <View style={{ ...styles.floatingAction, ...position }}>{children}</View>
+  <View style={{ ...styles.floatingAction, ...position }}>
+    <View style={styles.floatingActionButton}>{children}</View>
+  </View>
 );
