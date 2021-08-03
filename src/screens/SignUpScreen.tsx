@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export const LoginScreen: React.FC = () => (
+export const SignUpScreen: React.FC = () => (
   <View style={styles.container}>
     <AppBar />
     <View style={styles.inner}>
       <View>
-        <Text style={styles.title}>Login</Text>
+        <Text style={styles.title}>Sign Up</Text>
       </View>
       <BlankSeparator height={24} />
       <View>
@@ -62,11 +62,9 @@ export const LoginScreen: React.FC = () => (
       </View>
       <BlankSeparator height={24} />
       <View style={styles.prompt}>
-        <Text style={styles.promptText}>Not Registered?</Text>
+        <Text style={styles.promptText}>Already Registered?</Text>
         <View style={styles.promptLinkTextWrapper}>
-          <Text style={[styles.promptText, styles.promptLinkText]}>
-            Sign up here!!
-          </Text>
+          <Text style={[styles.promptText, styles.promptLinkText]}>Login.</Text>
         </View>
       </View>
     </View>
