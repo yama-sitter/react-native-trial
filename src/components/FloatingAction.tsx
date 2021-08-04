@@ -21,8 +21,10 @@ export type Props = {
   left?: number;
 };
 
-export const FloatingAction: React.FC<Props> = ({ children, ...position }) => (
-  <View style={{ ...styles.floatingAction, ...position }}>
-    <View style={styles.floatingActionButton}>{children}</View>
-  </View>
+export const FloatingAction: React.FC<Props> = React.memo(
+  ({ children, ...position }) => (
+    <View style={{ ...styles.floatingAction, ...position }}>
+      <View style={styles.floatingActionButton}>{children}</View>
+    </View>
+  )
 );

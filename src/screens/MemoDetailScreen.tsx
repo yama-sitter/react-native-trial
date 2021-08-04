@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 import { AppBar } from '../components/AppBar';
 import { FloatingAction } from '../components/FloatingAction';
 import { CircleButton } from '../components/CircleButton';
 import { MemoDetailHeader } from '../components/MemoDetailHeader';
 import { MemoDetailContent } from '../components/MemoDetailContent';
+import { IconButton } from '../components/IconButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,7 +28,7 @@ export const MemoDetailScreen: React.FC = () => (
     <MemoDetailContent body={body} />
     <FloatingAction top={160} right={40}>
       <CircleButton>
-        <Feather name="edit-2" size={32} color="white" />
+        <IconButton name="edit" size={32} color="#fff" />
       </CircleButton>
     </FloatingAction>
   </View>

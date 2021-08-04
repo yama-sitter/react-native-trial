@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 import { AppBar } from '../components/AppBar';
 import { MemoList } from '../components/MemoList';
 import { FloatingAction } from '../components/FloatingAction';
 import { CircleButton } from '../components/CircleButton';
+import { IconButton } from '../components/IconButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +24,7 @@ export const MemoListScreen: React.FC = () => (
     <MemoList items={memoListItems} />
     <FloatingAction right={40} bottom={40}>
       <CircleButton>
-        <Feather name="plus" size={32} color="white" />
+        <IconButton name="plus" size={32} color="#fff" />
       </CircleButton>
     </FloatingAction>
   </View>

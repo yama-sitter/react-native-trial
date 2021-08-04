@@ -6,10 +6,10 @@ export type Props = {
   items: MemoListItemProps[];
 };
 
-export const MemoList: React.FC<Props> = ({ items }) => (
+export const MemoList: React.FC<Props> = React.memo(({ items }) => (
   <View>
     {items.map((item) => (
       <MemoListItem key={item.title} {...item} />
     ))}
   </View>
-);
+));

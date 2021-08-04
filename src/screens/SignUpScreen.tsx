@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
 import { AppBar } from '../components/AppBar';
 import { Button } from '../components/Button';
+import { TouchableText } from '../components/TouchableText';
 import { BlankSeparator } from '../components/BlankSeparator';
 
 const styles = StyleSheet.create({
@@ -38,9 +39,6 @@ const styles = StyleSheet.create({
   promptLinkTextWrapper: {
     marginLeft: 8,
   },
-  promptLinkText: {
-    color: '#467fd3',
-  },
 });
 
 export const SignUpScreen: React.FC = () => (
@@ -64,7 +62,7 @@ export const SignUpScreen: React.FC = () => (
       <View style={styles.prompt}>
         <Text style={styles.promptText}>Already Registered?</Text>
         <View style={styles.promptLinkTextWrapper}>
-          <Text style={[styles.promptText, styles.promptLinkText]}>Login.</Text>
+          <TouchableText fontSize={14}>Login.</TouchableText>
         </View>
       </View>
     </View>

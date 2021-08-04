@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   circleButton: {
@@ -17,8 +17,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export const CircleButton: React.FC = ({ children }) => (
-  <View style={styles.circleButton}>
-    <Text style={styles.circleButtonLabel}>{children}</Text>
-  </View>
+export type Props = {
+  onPress?: () => void;
+};
+
+export const CircleButton: React.FC<Props> = React.memo(
+  ({ onPress, children }) => (
+    <TouchableOpacity style={styles.circleButton} onPress={onPress}>
+      <Text style={styles.circleButtonLabel}>{children}</Text>
+    </TouchableOpacity>
+  )
 );

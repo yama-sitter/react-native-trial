@@ -7,6 +7,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export const LogoutButton: React.FC = () => (
+export const LogoutButton: React.FC = React.memo(() => (
   <Text style={styles.logoutButton}>ログアウト</Text>
-);
+));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
@@ -15,8 +15,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Button: React.FC = ({ children }) => (
-  <View style={styles.button}>
+export type Props = {
+  onPress?: () => void;
+};
+
+export const Button: React.FC<Props> = React.memo(({ onPress, children }) => (
+  <TouchableOpacity style={styles.button} onPress={onPress}>
     <Text style={styles.buttonLabel}>{children}</Text>
-  </View>
-);
+  </TouchableOpacity>
+));

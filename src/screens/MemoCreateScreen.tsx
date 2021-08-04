@@ -5,10 +5,10 @@ import {
   TextInput,
   KeyboardAvoidingView,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 import { AppBar } from '../components/AppBar';
 import { FloatingAction } from '../components/FloatingAction';
 import { CircleButton } from '../components/CircleButton';
+import { IconButton } from '../components/IconButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,7 +35,7 @@ export const MemoCreateScreen: React.FC = () => (
     </View>
     <FloatingAction bottom={40} right={40}>
       <CircleButton>
-        <Feather name="check" size={32} />
+        <IconButton name="check" size={32} color="#fff" />
       </CircleButton>
     </FloatingAction>
   </KeyboardAvoidingView>

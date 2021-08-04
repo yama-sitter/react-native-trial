@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const AppBar: React.FC = () => (
+export const AppBar: React.FC = React.memo(() => (
   <View style={styles.appBar}>
     <View style={styles.appBarInner}>
       <Text style={styles.title}>Memo App</Text>
@@ -37,4 +37,4 @@ export const AppBar: React.FC = () => (
       </View>
     </View>
   </View>
-);
+));

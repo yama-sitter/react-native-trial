@@ -21,6 +21,6 @@ const convertNameToIconName = (name: IconName): FeatherIconName => {
   }
 };
 
-export const IconButton: React.FC<Props> = ({ name, ...props }) => (
+export const IconButton: React.FC<Props> = React.memo(({ name, ...props }) => (
   <Feather name={convertNameToIconName(name)} {...props} />
-);
+));

@@ -28,9 +28,11 @@ export type Props = {
   date: Date;
 };
 
-export const MemoDetailHeader: React.FC<Props> = ({ title, date }) => (
-  <View style={styles.header}>
-    <Text style={styles.title}>{title}</Text>
-    <Text style={styles.date}>{formatDate(date)}</Text>
-  </View>
+export const MemoDetailHeader: React.FC<Props> = React.memo(
+  ({ title, date }) => (
+    <View style={styles.header}>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.date}>{formatDate(date)}</Text>
+    </View>
+  )
 );

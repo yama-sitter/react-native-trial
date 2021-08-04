@@ -16,8 +16,8 @@ export type Props = {
   body: string;
 };
 
-export const MemoDetailContent: React.FC<Props> = ({ body }) => (
+export const MemoDetailContent: React.FC<Props> = React.memo(({ body }) => (
   <ScrollView style={styles.wrapper}>
     <Text style={styles.body}>{body}</Text>
   </ScrollView>
-);
+));
