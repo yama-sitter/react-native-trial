@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { AppBar } from '../components/AppBar';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../types';
 import { FloatingAction } from '../components/FloatingAction';
 import { CircleButton } from '../components/CircleButton';
 import { MemoDetailHeader } from '../components/MemoDetailHeader';
@@ -21,13 +22,20 @@ const header = {
 const body =
   '買い物リスト\n書体やレイアウトなどを確認するために用います。本文用なので使い方を間違えると不自然に見えることもありますので要注意。';
 
-export const MemoDetailScreen: React.FC = () => (
+type MemoDetailScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'MemoEdit'
+>;
+type Props = {
+  navigation: MemoDetailScreenNavigationProp;
+};
+
+export const MemoDetailScreen: React.FC<Props> = ({ navigation }) => (
   <View style={styles.container}>
-    <AppBar />
     <MemoDetailHeader {...header} />
     <MemoDetailContent body={body} />
-    <FloatingAction top={160} right={40}>
-      <CircleButton>
+    <FloatingAction top={60} right={40}>
+      <CircleButton onPress={() => navigation.navigate('MemoEdit')}>
         <IconButton name="edit" size={32} color="#fff" />
       </CircleButton>
     </FloatingAction>

@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { AppBar } from '../components/AppBar';
+import { StyleSheet, View, Alert } from 'react-native';
+import { CompositeNavigationProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../types';
 import { MemoList } from '../components/MemoList';
 import { FloatingAction } from '../components/FloatingAction';
 import { CircleButton } from '../components/CircleButton';
@@ -18,12 +20,23 @@ const memoListItems = [
   { title: '買い物リスト2', date: new Date() },
 ];
 
-export const MemoListScreen: React.FC = () => (
+type MemoListScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList, 'MemoDetail'>,
+  StackNavigationProp<RootStackParamList, 'MemoCreate'>
+>;
+type Props = {
+  navigation: MemoListScreenNavigationProp;
+};
+
+export const MemoListScreen: React.FC<Props> = ({ navigation }) => (
   <View style={styles.container}>
-    <AppBar />
-    <MemoList items={memoListItems} />
+    <MemoList
+      items={memoListItems}
+      onPressItem={() => navigation.navigate('MemoDetail')}
+      onDeleteItem={() => Alert.alert('Are you sure?')}
+    />
     <FloatingAction right={40} bottom={40}>
-      <CircleButton>
+      <CircleButton onPress={() => navigation.navigate('MemoCreate')}>
         <IconButton name="plus" size={32} color="#fff" />
       </CircleButton>
     </FloatingAction>

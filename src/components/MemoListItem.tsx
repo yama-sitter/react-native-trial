@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, Alert } from 'react-native';
 import { CloseButton } from '../components/CloseButton';
 import { formatDate } from '../lib';
 
@@ -28,16 +28,23 @@ const styles = StyleSheet.create({
 export type Props = {
   title: string;
   date: Date;
+  onPress?: () => void;
+  onDelete?: () => void;
 };
 
-export const MemoListItem: React.FC<Props> = ({ title, date }) => (
-  <View style={styles.item}>
+export const MemoListItem: React.FC<Props> = ({
+  title,
+  date,
+  onPress,
+  onDelete,
+}) => (
+  <TouchableOpacity style={styles.item} onPress={onPress}>
     <View>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.date}>{formatDate(date)}</Text>
     </View>
     <View>
-      <CloseButton />
+      <CloseButton size={24} onPress={onDelete} />
     </View>
-  </View>
+  </TouchableOpacity>
 );

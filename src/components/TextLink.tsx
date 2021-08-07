@@ -11,11 +11,12 @@ const styles = StyleSheet.create({
 
 export type Props = {
   fontSize?: number;
+  onPress?: () => void;
 };
 
-export const TouchableText: React.FC<Props> = React.memo(
-  ({ children, ...props }) => (
-    <TouchableOpacity>
+export const TextLink: React.FC<Props> = React.memo(
+  ({ children, onPress, ...props }) => (
+    <TouchableOpacity onPress={onPress}>
       <Text style={{ ...styles.text, ...props }}>{children}</Text>
     </TouchableOpacity>
   )

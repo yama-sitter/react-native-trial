@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
-import { AppBar } from '../components/AppBar';
+import { CompositeNavigationProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../types';
 import { Button } from '../components/Button';
-import { TouchableText } from '../components/TouchableText';
+import { TextLink } from '../components/TextLink';
 import { BlankSeparator } from '../components/BlankSeparator';
 
 const styles = StyleSheet.create({
@@ -41,30 +43,48 @@ const styles = StyleSheet.create({
   },
 });
 
-export const LoginScreen: React.FC = () => (
-  <View style={styles.container}>
-    <AppBar />
-    <View style={styles.inner}>
-      <View>
-        <Text style={styles.title}>Login</Text>
-      </View>
-      <BlankSeparator height={24} />
-      <View>
-        <TextInput style={styles.input} value="Email Address" />
-        <BlankSeparator height={16} />
-        <TextInput style={styles.input} value="Password" />
-      </View>
-      <BlankSeparator height={24} />
-      <View style={styles.buttonWrapper}>
-        <Button>Submit</Button>
-      </View>
-      <BlankSeparator height={24} />
-      <View style={styles.prompt}>
-        <Text style={styles.promptText}>Not Registered?</Text>
-        <View style={styles.promptLinkTextWrapper}>
-          <TouchableText fontSize={14}>Sign up here!</TouchableText>
+type LoginScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList, 'SignUp'>,
+  StackNavigationProp<RootStackParamList, 'MemoList'>
+>;
+type Props = {
+  navigation: LoginScreenNavigationProp;
+};
+
+export const LoginScreen: React.FC<Props> = ({ navigation }) => {
+  const onPressSubmit = () => {
+    navigation.reset({ index: 0, routes: [{ name: 'MemoList' }] });
+  };
+  const onPressSignUpLink = () => {
+    navigation.reset({ index: 0, routes: [{ name: 'SignUp' }] });
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.inner}>
+        <View>
+          <Text style={styles.title}>Login</Text>
+        </View>
+        <BlankSeparator height={24} />
+        <View>
+          <TextInput style={styles.input} value="Email Address" />
+          <BlankSeparator height={16} />
+          <TextInput style={styles.input} value="Password" />
+        </View>
+        <BlankSeparator height={24} />
+        <View style={styles.buttonWrapper}>
+          <Button onPress={onPressSubmit}>Submit</Button>
+        </View>
+        <BlankSeparator height={24} />
+        <View style={styles.prompt}>
+          <Text style={styles.promptText}>Not Registered?</Text>
+          <View style={styles.promptLinkTextWrapper}>
+            <TextLink fontSize={14} onPress={onPressSignUpLink}>
+              Sign up here!
+            </TextLink>
+          </View>
         </View>
       </View>
     </View>
-  </View>
-);
+  );
+};

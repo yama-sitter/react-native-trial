@@ -5,7 +5,8 @@ import {
   TextInput,
   KeyboardAvoidingView,
 } from 'react-native';
-import { AppBar } from '../components/AppBar';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../types';
 import { FloatingAction } from '../components/FloatingAction';
 import { CircleButton } from '../components/CircleButton';
 import { IconButton } from '../components/IconButton';
@@ -27,14 +28,18 @@ const styles = StyleSheet.create({
   },
 });
 
-export const MemoEditScreen: React.FC = () => (
+type MemoEditScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+type Props = {
+  navigation: MemoEditScreenNavigationProp;
+};
+
+export const MemoEditScreen: React.FC<Props> = ({ navigation }) => (
   <KeyboardAvoidingView style={styles.container} behavior="height">
-    <AppBar />
     <View style={styles.inputContainer}>
       <TextInput value="買い物リスト" multiline style={styles.input} />
     </View>
     <FloatingAction bottom={40} right={40}>
-      <CircleButton>
+      <CircleButton onPress={() => navigation.goBack()}>
         <IconButton name="check" size={32} color="#fff" />
       </CircleButton>
     </FloatingAction>
