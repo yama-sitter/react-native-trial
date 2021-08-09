@@ -24,6 +24,8 @@ export default () => (
         headerTintColor: '#fff',
         headerBackTitle: 'Back',
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        gestureEnabled: true,
+        gestureDirection: 'horizontal',
       }}
     >
       <Stack.Screen
