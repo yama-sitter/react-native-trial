@@ -23,6 +23,7 @@ export default () => (
         headerTitle: 'Memo App',
         headerTintColor: '#fff',
         headerBackTitle: 'Back',
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
       <Stack.Screen
