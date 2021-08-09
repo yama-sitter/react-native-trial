@@ -52,11 +52,10 @@ export const SignUpFormContainer: React.FC<ContainerProps> = () => {
   const navigation = useNavigation<NavigationProp>();
   const { email, password, setEmail, setPassword, signUp } = useSignUp();
 
-  const onSubmit = () =>
-    useCallback(async () => {
-      await signUp();
-      navigation.reset({ index: 0, routes: [{ name: 'MemoList' }] });
-    }, []);
+  const onSubmit = useCallback(async () => {
+    await signUp();
+    navigation.reset({ index: 0, routes: [{ name: 'MemoList' }] });
+  }, []);
 
   return (
     <AuthForm
@@ -75,11 +74,10 @@ export const LoginFormContainer: React.FC<ContainerProps> = () => {
   const navigation = useNavigation<NavigationProp>();
   const { email, password, setEmail, setPassword, login } = useLogin();
 
-  const onSubmit = () =>
-    useCallback(async () => {
-      await login();
-      navigation.reset({ index: 0, routes: [{ name: 'MemoList' }] });
-    }, []);
+  const onSubmit = useCallback(async () => {
+    await login();
+    navigation.reset({ index: 0, routes: [{ name: 'MemoList' }] });
+  }, []);
 
   return (
     <AuthForm
